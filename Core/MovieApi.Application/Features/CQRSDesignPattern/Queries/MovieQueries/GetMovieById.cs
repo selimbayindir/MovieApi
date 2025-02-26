@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Queries.MovieQueries
 {
-    internal class GetMovieById
+    public class GetMovieById
     {
+
     }
 }
