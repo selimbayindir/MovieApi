@@ -7,9 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CQRSDesignPattern\Handlers\" />
-    <Folder Include="Features\CQRSDesignPattern\Queries\" />
-    <Folder Include="Features\CQRSDesignPattern\Results\CategoryResults\" />
+    <Folder Include="Features\CQRSDesignPattern\Handlers\CategoryHandlers\" />
+    <Folder Include="Features\CQRSDesignPattern\Handlers\MovieHandlers\" />
   </ItemGroup>
 
 </Project>
