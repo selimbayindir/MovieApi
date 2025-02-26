@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\CQRSDesignPattern\Handlers\" />
+    <Folder Include="Features\CQRSDesignPattern\Queries\" />
+    <Folder Include="Features\CQRSDesignPattern\Results\CategoryResults\" />
+  </ItemGroup>
+
 </Project>
