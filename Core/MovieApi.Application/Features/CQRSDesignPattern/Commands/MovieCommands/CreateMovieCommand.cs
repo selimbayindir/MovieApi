@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Commands.MovieCommands
 {
-    public class CreateMovieComman
+    public class CreateMovieCommand
     {
     
         public string Title { get; set; }
