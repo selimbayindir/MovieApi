@@ -19,14 +19,12 @@
 //app.UseAuthorization();
 
 //app.MapControllers();
-
 //app.Run();
-
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers;
 using MovieApi.Application.Features.CQRSDesignPattern.Handlers.CategoryHandlers;
+using MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers;
+using MovieApi.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 #region Maplemeler
@@ -43,11 +41,7 @@ builder.Services.AddScoped<GetMovieByIdQueryHandler>();
 builder.Services.AddScoped<CreateMovieCommandHandler>();
 builder.Services.AddScoped<RemoveMovieCommandHandler>();
 builder.Services.AddScoped<GetMovieQueryHandler>();
-
-
-
 #endregion
-
 // Servisleri ekle
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -62,6 +56,12 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
+
+//builder.Services.AddDbContext<MovieContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddDbContext<MovieContext>();
 
 var app = builder.Build();
 

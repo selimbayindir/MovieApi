@@ -10,6 +10,9 @@ namespace MovieApi.Persistence.Context
 {
     public class MovieContext :DbContext
     {
+        public MovieContext(DbContextOptions<MovieContext> options) : base(options)
+        {
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //base.OnConfiguring(optionsBuilder);
