@@ -35,12 +35,11 @@ builder.Services.AddScoped<CreateCategoryCommandHandler>();
 builder.Services.AddScoped<RemoveCategoryCommandHandler>();
 builder.Services.AddScoped<UpdateCategoryCommandHandler>();
 
-
 builder.Services.AddScoped<GetMovieQueryHandler>();
 builder.Services.AddScoped<GetMovieByIdQueryHandler>();
 builder.Services.AddScoped<CreateMovieCommandHandler>();
 builder.Services.AddScoped<RemoveMovieCommandHandler>();
-builder.Services.AddScoped<GetMovieQueryHandler>();
+builder.Services.AddScoped<UpdateMovieCommandHandler>();
 #endregion
 // Servisleri ekle
 builder.Services.AddControllers();
@@ -49,8 +48,8 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "My API",
-        Version = "v1"
+        Title = "Movies API",
+        Version = "v2"
     });
 });
 
@@ -71,7 +70,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movies API V2");
     });
 }
 

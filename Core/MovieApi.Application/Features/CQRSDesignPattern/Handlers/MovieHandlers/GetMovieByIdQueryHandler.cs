@@ -1,4 +1,5 @@
-﻿using MovieApi.Application.Features.CQRSDesignPattern.Queries.MovieQueries;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using MovieApi.Application.Features.CQRSDesignPattern.Queries.MovieQueries;
 using MovieApi.Application.Features.CQRSDesignPattern.Results.MovieResults;
 using MovieApi.Persistence.Context;
 using System;
@@ -17,10 +18,20 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
         {
             _context = context;
         }
-
-        public async Task<GetMovieByIdQueryResult> Handle(GetMovieByIdQuery query)
+        public async Task<GetMovieByIdQueryResult?> Handle(GetMovieByIdQuery query)
         {
             var value = await _context.Movies.FindAsync(query.MovieId);
+
+            if (value == null)
+            {
+                //return null; // Film bulunamazsa null döndürülüyor
+                return new GetMovieByIdQueryResult
+                {
+                    Title = "Film Kayıtlı Değil",
+                    MovieId = 0
+                };
+            }
+
             return new GetMovieByIdQueryResult
             {
                 MovieId = value.MovieId,
@@ -34,5 +45,6 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
                 CreatedYear = value.CreatedYear
             };
         }
+
     }
 }
