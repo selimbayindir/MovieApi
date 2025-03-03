@@ -14,7 +14,11 @@ namespace MovieApi.Persistence.Context
         {
             //base.OnConfiguring(optionsBuilder);
             //optionsBuilder.UseSqlServer("Server=Server=SELIMBAYINDIR\\SUPERHERO;Initial Catalog=MovieDb;Integrated Security=true");
-            optionsBuilder.UseSqlServer("Server=SELIMBAYINDIR\\SUPERHERO;Database=ApiMovieDb;User Id=dw;Password=0000;TrustServerCertificate=True;");
+
+            //optionsBuilder.UseSqlServer("Server=SELIMBAYINDIR\\SUPERHERO;Database=ApiMovieDb;User Id=dw;Password=0000;TrustServerCertificate=True;");
+
+            optionsBuilder.UseSqlServer("Server=SELIM\\BYNDR;Database=ApiMovieDb;User Id=dw;Password=0000;TrustServerCertificate=True;");
+
 
         }
         public DbSet<Category> Categories { get; set; }
