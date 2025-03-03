@@ -31,28 +31,37 @@ namespace MovieApi.WebApi.Controllers
         {
             return Ok(await _getCategoryQueryHandler.Handle());
         }
+        [HttpDelete]
+        public async Task<IActionResult> RemoveCategory(int id)
+        {
+            //await _removeCategoryCommandHandler.Handle(new RemoveCategoryCommand { CategoryId = id });
+            await _removeCategoryCommandHandler.Handle(new RemoveCategoryCommand(id));
+            return Ok("Silme İşlemi Başarılı!");
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryCommand command)
+        {
+            await _updateCategoryCommandHandler.Handle(command);
+            return Ok("Güncelleme İşlemi Başarılı!");
+
+        }
+        [HttpGet("GetCategory")]
+        public async Task<IActionResult> GetCategory(int id)
+        {
+            //return Ok(await _getCategoryByIdQueryHandler.Handle(new GetCategoryByIdQuery { CategoryId = id }));
+            return Ok(await _getCategoryByIdQueryHandler.Handle(new GetCategoryByIdQuery (id)));
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryCommand command)
         {
             await _createCategoryCommandHandler.Handle(command);
             return Ok();
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCategoryById(int id)
-        {
-            return Ok(await _getCategoryByIdQueryHandler.Handle(new GetCategoryByIdQuery { CategoryId = id }));
-        }
-        [HttpPut]
-        public async Task<IActionResult> UpdateCategory(UpdateCategoryCommand command)
-        {
-            await _updateCategoryCommandHandler.Handle(command);
-            return Ok();
-        }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> RemoveCategory(int id)
-        {
-            await _removeCategoryCommandHandler.Handle(new RemoveCategoryCommand { CategoryId = id });
-            return Ok();
-        }
+       
+      
+    
     }
 }

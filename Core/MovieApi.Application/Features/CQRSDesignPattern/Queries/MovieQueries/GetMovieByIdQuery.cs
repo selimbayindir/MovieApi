@@ -10,5 +10,9 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Queries.MovieQueries
     {
         public int MovieId { get; set; }
 
+        public GetMovieByIdQuery(int movieId)
+        {
+            MovieId = movieId;
+        }
     }
 }

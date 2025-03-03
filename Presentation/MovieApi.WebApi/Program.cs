@@ -25,8 +25,28 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers;
+using MovieApi.Application.Features.CQRSDesignPattern.Handlers.CategoryHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
+#region Maplemeler
+
+builder.Services.AddScoped<GetCategoryQueryHandler>();
+builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
+builder.Services.AddScoped<CreateCategoryCommandHandler>();
+builder.Services.AddScoped<RemoveCategoryCommandHandler>();
+builder.Services.AddScoped<UpdateCategoryCommandHandler>();
+
+
+builder.Services.AddScoped<GetMovieQueryHandler>();
+builder.Services.AddScoped<GetMovieByIdQueryHandler>();
+builder.Services.AddScoped<CreateMovieCommandHandler>();
+builder.Services.AddScoped<RemoveMovieCommandHandler>();
+builder.Services.AddScoped<GetMovieQueryHandler>();
+
+
+
+#endregion
 
 // Servisleri ekle
 builder.Services.AddControllers();
