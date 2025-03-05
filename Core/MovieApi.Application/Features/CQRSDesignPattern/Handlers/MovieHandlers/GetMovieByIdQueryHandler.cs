@@ -34,6 +34,7 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
 
             return new GetMovieByIdQueryResult
             {
+  
                 MovieId = value.MovieId,
                 Title = value.Title,
                 CoverImageUrl = value.CoverImageUrl,

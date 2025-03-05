@@ -49,7 +49,7 @@ namespace MovieApi.WebApi.Controllers
         public async Task<IActionResult> UpdateMovie(UpdateMovieCommand command)
         {
             await _updateMovieCommandHandler.Handle(command);
-            return Ok("Güncelleme İşlemi Başarılı!");
+            return Ok("Film Güncelleme İşlemi Başarılı!");
         }
         //
     }
